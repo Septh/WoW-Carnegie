@@ -1,0 +1,26 @@
+## Interface: 70200
+## Title: Carnegie
+## Notes: Order Hall Things
+## Version: 1.0.0
+## Author: Septh
+## OptionalDeps: !Swatter
+## SavedVariables: CarnegieDB
+
+# LibStub
+Libs\LibStub\LibStub.lua
+
+# Ace3
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+Libs\AceAddon-3.0\AceAddon-3.0.xml
+Libs\AceConsole-3.0\AceConsole-3.0.xml
+Libs\AceEvent-3.0\AceEvent-3.0.xml
+Libs\AceHook-3.0\AceHook-3.0.xml
+Libs\AceLocale-3.0\AceLocale-3.0.xml
+Libs\AceDB-3.0\AceDB-3.0.xml
+
+# Locales
+locales\en.lua
+locales\fr.lua
+
+# Core
+Carnegie.lua

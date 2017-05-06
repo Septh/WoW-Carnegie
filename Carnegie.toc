@@ -3,7 +3,7 @@
 ## Notes: Order Hall Things
 ## Version: 1.0.0
 ## Author: Septh
-## OptionalDeps: !Swatter
+## OptionalDeps: !Swatter, #Septh, xanOrderHalls
 ## SavedVariables: CarnegieDB
 
 # LibStub
@@ -23,4 +23,5 @@ locales\en.lua
 locales\fr.lua
 
 # Core
+Carnegie.xml
 Carnegie.lua

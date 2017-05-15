@@ -1,6 +1,6 @@
 ## Interface: 70200
 ## Title: Carnegie
-## Notes: Order Hall Things
+## Notes: Hall of fame
 ## Version: 1.0.0
 ## Author: Septh
 ## OptionalDeps: !Swatter, #Septh, xanOrderHalls
@@ -23,5 +23,6 @@ locales\en.lua
 locales\fr.lua
 
 # Core
-Carnegie.xml
-Carnegie.lua
+Templates.xml
+Core.lua
+LandingPage.lua

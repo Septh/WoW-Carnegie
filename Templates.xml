@@ -4,14 +4,14 @@
 	<Frame name="CarnegieShipmentTimerTemplate" inherits="GarrisonLandingPageReportShipmentStatusTemplate" virtual="true">
 		<Scripts>
 			<OnLoad>
-				self:SetScale(42/self:GetWidth())
+				--self:SetScale(42/self:GetWidth())
 				--self.Done:Hide()
 			</OnLoad>
 		</Scripts>
 	</Frame>
 
 	<Button name="CarnegieCharacterSummaryTemplate" virtual="true">
-		<Size x="700" y="56" />
+		<Size x="720" y="80" />
 		<Layers>
 			<Layer level="BACKGROUND">
 				<Texture atlas="GarrMission_MissionParchment" useAtlasSize="true" vertTile="true" horizTile="true" setAllPoints="true" />
@@ -54,28 +54,84 @@
 				</Layers>
 			</Frame>
 
-			<!-- Ressources de domaine -->
-			<Frame parentKey="ressources">
-				<Size x="42" y="42" />
+			<!-- Arme prodigieuse -->
+			<Frame parentKey="artifact">
+				<Size x="80" y="80"/>
 				<Anchors>
 					<Anchor relativeKey="$parent.name" relativePoint="RIGHT" point="LEFT" x="10" y="0" />
 				</Anchors>
 				<Layers>
-					<Layer level="BACKGROUND">
-						<Texture atlas="ClassHall-QuestIcon-Desaturated" useAtlasSize="true" />
+					<Layer level="OVERLAY" textureSubLevel="1">
+						<Texture parentKey="ItemIcon">
+							<Size x="60" y="60"/>
+							<Anchors>
+								<Anchor point="CENTER" x="0" y="0"/>
+							</Anchors>
+						</Texture>
+						<MaskTexture file="Interface\CharacterFrame\TempPortraitAlphaMaskSmall" hWrapMode="CLAMPTOBLACKADDITIVE" vWrapMode="CLAMPTOBLACKADDITIVE">
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeKey="$parent.ItemIcon"/>
+								<Anchor point="BOTTOMRIGHT" relativeKey="$parent.ItemIcon"/>
+							</Anchors>
+							<MaskedTextures>
+								<MaskedTexture childKey="ItemIcon"/>
+							</MaskedTextures>
+						</MaskTexture>
+					</Layer>
+					<Layer level="OVERLAY" textureSubLevel="2">
+						<Texture parentKey="ItemIconBorder" file="Interface\TalentFrame\spec-filagree">
+							<TexCoords left="0.00390625" right="0.27734375" top="0.48437500" bottom="0.75781250"/>
+							<Size x="74" y="74" />
+							<Anchors>
+								<Anchor point="CENTER" relativeKey="$parent.ItemIcon"/>
+							</Anchors>
+						</Texture>
+					</Layer>
+
+					<Layer level="OVERLAY" textureSubLevel="4">
+						<Texture parentKey="ForgeLevelRing" atlas="guild-levelring" useAtlasSize="true">
+							<Anchors>
+								<Anchor point="CENTER" relativeKey="$parent.ItemIcon" relativePoint="CENTER" x="22" y="-22"/>
+							</Anchors>
+						</Texture>
+						<FontString parentKey="ForgeLevelLabel" inherits="GameFontNormalSmall" text="0" justifyH="CENTER">
+							<Anchors>
+								<Anchor point="CENTER" relativeKey="$parent.ForgeLevelRing" />
+							</Anchors>
+							<Color r="1.0" g="0.82" b="0"/>
+						</FontString>
+					</Layer>
+					<Layer level="OVERLAY" textureSubLevel="3">
+						<Texture parentKey="ForgeLevelBackground" alpha="0">
+							<Size x="22" y="22"/>
+							<Anchors>
+								<Anchor point="TOPLEFT" relativeKey="$parent.ForgeLevelRing" relativePoint="TOPLEFT" x="8" y="-7"/>
+							</Anchors>
+							<Color r="0" g="0" b="0"/>
+						</Texture>
 					</Layer>
 				</Layers>
+				<Scripts>
+					<OnLoad>
+						--self:SetScale(42 / self.ItemIcon:GetHeight())
+						self:RegisterEvent('GET_ITEM_INFO_RECEIVED')
+					</OnLoad>
+					<OnEvent>
+						if event == GET_ITEM_INFO_RECEIVED then
+						end
+					</OnEvent>
+				</Scripts>
 			</Frame>
 
 			<!-- Missions -->
 			<Frame parentKey="missions">
-				<Size x="42" y="42" />
+				<Size x="64" y="64" />
 				<Anchors>
-					<Anchor relativeKey="$parent.ressources" relativePoint="RIGHT" point="LEFT" x="10" y="0" />
+					<Anchor relativeKey="$parent.artifact" relativePoint="RIGHT" point="LEFT" x="10" y="0" />
 				</Anchors>
 				<Layers>
 					<Layer level="BACKGROUND">
-						<Texture atlas="ClassHall-QuestIcon-Desaturated" useAtlasSize="true" />
+						<Texture parentKey="icon" atlas="ClassHall-QuestIcon-Desaturated" useAtlasSize="true" />
 					</Layer>
 				</Layers>
 			</Frame>

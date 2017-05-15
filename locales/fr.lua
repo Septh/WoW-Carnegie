@@ -4,4 +4,4 @@ if not L then return end
 
 --
 L['Yes'] = 'Oui'
-L['Characters'] = 'Personnages'
+L['Characters'] = 'Autres personnages'
